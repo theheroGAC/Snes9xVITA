@@ -1,180 +1,5 @@
-/***********************************************************************************
-  Snes9x - Portable Super Nintendo Entertainment System (TM) emulator.
-
-  (c) Copyright 1996 - 2002  Gary Henderson (gary.henderson@ntlworld.com),
-                             Jerremy Koot (jkoot@snes9x.com)
-
-  (c) Copyright 2002 - 2004  Matthew Kendora
-
-  (c) Copyright 2002 - 2005  Peter Bortas (peter@bortas.org)
-
-  (c) Copyright 2004 - 2005  Joel Yliluoma (http://iki.fi/bisqwit/)
-
-  (c) Copyright 2001 - 2006  John Weidman (jweidman@slip.net)
-
-  (c) Copyright 2002 - 2006  funkyass (funkyass@spam.shaw.ca),
-                             Kris Bleakley (codeviolation@hotmail.com)
-
-  (c) Copyright 2002 - 2010  Brad Jorsch (anomie@users.sourceforge.net),
-                             Nach (n-a-c-h@users.sourceforge.net),
-                             zones (kasumitokoduck@yahoo.com)
-
-  (c) Copyright 2006 - 2007  nitsuja
-
-  (c) Copyright 2009 - 2010  BearOso,
-                             OV2
-
-
-  BS-X C emulator code
-  (c) Copyright 2005 - 2006  Dreamer Nom,
-                             zones
-
-  C4 x86 assembler and some C emulation code
-  (c) Copyright 2000 - 2003  _Demo_ (_demo_@zsnes.com),
-                             Nach,
-                             zsKnight (zsknight@zsnes.com)
-
-  C4 C++ code
-  (c) Copyright 2003 - 2006  Brad Jorsch,
-                             Nach
-
-  DSP-1 emulator code
-  (c) Copyright 1998 - 2006  _Demo_,
-                             Andreas Naive (andreasnaive@gmail.com),
-                             Gary Henderson,
-                             Ivar (ivar@snes9x.com),
-                             John Weidman,
-                             Kris Bleakley,
-                             Matthew Kendora,
-                             Nach,
-                             neviksti (neviksti@hotmail.com)
-
-  DSP-2 emulator code
-  (c) Copyright 2003         John Weidman,
-                             Kris Bleakley,
-                             Lord Nightmare (lord_nightmare@users.sourceforge.net),
-                             Matthew Kendora,
-                             neviksti
-
-  DSP-3 emulator code
-  (c) Copyright 2003 - 2006  John Weidman,
-                             Kris Bleakley,
-                             Lancer,
-                             z80 gaiden
-
-  DSP-4 emulator code
-  (c) Copyright 2004 - 2006  Dreamer Nom,
-                             John Weidman,
-                             Kris Bleakley,
-                             Nach,
-                             z80 gaiden
-
-  OBC1 emulator code
-  (c) Copyright 2001 - 2004  zsKnight,
-                             pagefault (pagefault@zsnes.com),
-                             Kris Bleakley
-                             Ported from x86 assembler to C by sanmaiwashi
-
-  SPC7110 and RTC C++ emulator code used in 1.39-1.51
-  (c) Copyright 2002         Matthew Kendora with research by
-                             zsKnight,
-                             John Weidman,
-                             Dark Force
-
-  SPC7110 and RTC C++ emulator code used in 1.52+
-  (c) Copyright 2009         byuu,
-                             neviksti
-
-  S-DD1 C emulator code
-  (c) Copyright 2003         Brad Jorsch with research by
-                             Andreas Naive,
-                             John Weidman
-
-  S-RTC C emulator code
-  (c) Copyright 2001 - 2006  byuu,
-                             John Weidman
-
-  ST010 C++ emulator code
-  (c) Copyright 2003         Feather,
-                             John Weidman,
-                             Kris Bleakley,
-                             Matthew Kendora
-
-  Super FX x86 assembler emulator code
-  (c) Copyright 1998 - 2003  _Demo_,
-                             pagefault,
-                             zsKnight
-
-  Super FX C emulator code
-  (c) Copyright 1997 - 1999  Ivar,
-                             Gary Henderson,
-                             John Weidman
-
-  Sound emulator code used in 1.5-1.51
-  (c) Copyright 1998 - 2003  Brad Martin
-  (c) Copyright 1998 - 2006  Charles Bilyue'
-
-  Sound emulator code used in 1.52+
-  (c) Copyright 2004 - 2007  Shay Green (gblargg@gmail.com)
-
-  SH assembler code partly based on x86 assembler code
-  (c) Copyright 2002 - 2004  Marcus Comstedt (marcus@mc.pp.se)
-
-  2xSaI filter
-  (c) Copyright 1999 - 2001  Derek Liauw Kie Fa
-
-  HQ2x, HQ3x, HQ4x filters
-  (c) Copyright 2003         Maxim Stepin (maxim@hiend3d.com)
-
-  NTSC filter
-  (c) Copyright 2006 - 2007  Shay Green
-
-  GTK+ GUI code
-  (c) Copyright 2004 - 2010  BearOso
-
-  Win32 GUI code
-  (c) Copyright 2003 - 2006  blip,
-                             funkyass,
-                             Matthew Kendora,
-                             Nach,
-                             nitsuja
-  (c) Copyright 2009 - 2010  OV2
-
-  Mac OS GUI code
-  (c) Copyright 1998 - 2001  John Stiles
-  (c) Copyright 2001 - 2010  zones
-
-  (c) Copyright 2010 - 2016 Daniel De Matteis. (UNDER NO CIRCUMSTANCE 
-  WILL COMMERCIAL RIGHTS EVER BE APPROPRIATED TO ANY PARTY)
-
-  Specific ports contains the works of other authors. See headers in
-  individual files.
-
-
-  Snes9x homepage: http://www.snes9x.com/
-
-  Permission to use, copy, modify and/or distribute Snes9x in both binary
-  and source form, for non-commercial purposes, is hereby granted without
-  fee, providing that this license information and copyright notice appear
-  with all copies and any derived work.
-
-  This software is provided 'as-is', without any express or implied
-  warranty. In no event shall the authors be held liable for any damages
-  arising from the use of this software or it's derivatives.
-
-  Snes9x is freeware for PERSONAL USE only. Commercial users should
-  seek permission of the copyright holders first. Commercial use includes,
-  but is not limited to, charging money for Snes9x or software derived from
-  Snes9x, including Snes9x or derivatives in commercial game bundles, and/or
-  using Snes9x as a promotion for your commercial product.
-
-  The copyright holders request that bug fixes and improvements to the code
-  should be forwarded to them so everyone can benefit from the modifications
-  in future versions.
-
-  Super NES and Super Nintendo Entertainment System are trademarks of
-  Nintendo Co., Limited and its subsidiary companies.
- ***********************************************************************************/
+#ifndef __LIBRETRO_C__
+#define __LIBRETRO_C__
 
 #include <stdio.h>
 #include <stdint.h>
@@ -190,7 +15,6 @@
 
 #include "libretro.h"
 
-#include "../src/boolean.h"
 #include "../src/snes9x.h"
 #include "../src/memmap.h"
 #include "../src/cpuexec.h"
@@ -203,6 +27,8 @@
 #include "../src/cheats.h"
 #include "../src/display.h"
 
+#include "../vita/vita_menu.h"
+
 #define LR_MAP_BUTTON(id, name) S9xMapButton((id), S9xGetCommandT((name)))
 #define MAKE_BUTTON(pad, btn) (((pad)<<4)|(btn))
 
@@ -214,8 +40,6 @@
 #define RETRO_DEVICE_LIGHTGUN_JUSTIFIER    RETRO_DEVICE_SUBCLASS(RETRO_DEVICE_LIGHTGUN, 1)
 #define RETRO_DEVICE_LIGHTGUN_JUSTIFIERS   RETRO_DEVICE_SUBCLASS(RETRO_DEVICE_LIGHTGUN, 2)
 
-#define CORE_VERSION "1.52.4"
-
 static retro_log_printf_t log_cb = NULL;
 static retro_video_refresh_t video_cb = NULL;
 static retro_input_poll_t poll_cb = NULL;
@@ -224,57 +48,6 @@ static retro_audio_sample_batch_t audio_batch_cb = NULL;
 static retro_environment_t environ_cb = NULL;
 
 extern s9xcommand_t			keymap[1024];
-
-
-static void check_variables(void)
-{
-   bool reset_sfx = false;
-   struct retro_variable var;
-   var.key = "snes9x_next_overclock";
-   var.value = NULL;
-   
-   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-   {
-      if (strcmp(var.value, "Disabled(10MHz)") == 0)
-      {
-         Settings.SuperFXSpeedPerLine = 0.417 * 10.5e6;
-         reset_sfx = true;
-      }
-      else if (strcmp(var.value, "40MHz") == 0)
-      {
-         Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6;
-         reset_sfx = true;
-      }
-      else if (strcmp(var.value, "60MHz") == 0)
-      {
-         Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6;
-         reset_sfx = true;
-      }
-      else if (strcmp(var.value, "80MHz") == 0)
-      {
-         Settings.SuperFXSpeedPerLine = 0.417 * 80.5e6;
-         reset_sfx = true;
-      }
-      else if (strcmp(var.value, "100MHz") == 0)
-      {
-         Settings.SuperFXSpeedPerLine = 0.417 * 100.5e6;
-         reset_sfx = true;
-      }
-      else if (strcmp(var.value, "Underclock(5MHz)") == 0)
-      {
-         Settings.SuperFXSpeedPerLine = 0.417 * 5.5e6;
-         reset_sfx = true;
-      }
-      else if (strcmp(var.value, "Underclock(8MHz)") == 0)
-      {
-         Settings.SuperFXSpeedPerLine = 0.417 * 8.5e6;
-         reset_sfx = true;
-      }
-   }
-   
-   if (reset_sfx)
-   S9xResetSuperFX();
-}
 
 void *retro_get_memory_data(unsigned type)
 {
@@ -369,7 +142,7 @@ static bool use_overscan;
 void retro_set_environment(retro_environment_t cb)
 {
    static const struct retro_variable vars[] = {
-      { "snes9x_next_overclock", "SuperFX Overclock; Disabled(10MHz)|40MHz|60MHz|80MHz|100MHz|Underclock(5MHz)|Underclock(8MHz)" },
+      { "snes9x_next_overclock", "SuperFX Overclock; disabled|40MHz|60MHz|80MHz|100MHz" },
       { NULL, NULL },
    };
 
@@ -392,7 +165,7 @@ void retro_set_environment(retro_environment_t cb)
    static const struct retro_controller_info ports[] = {
       { port_1, 3 },
       { port_2, 7 },
-      { 0, 0 }
+      { 0 },
    };
 
    environ_cb = cb;
@@ -403,27 +176,26 @@ void retro_set_environment(retro_environment_t cb)
 
 void retro_get_system_info(struct retro_system_info *info)
 {
-   info->need_fullpath    = false;
+   info->need_fullpath = false;
    info->valid_extensions = "smc|fig|sfc|gd3|gd7|dx2|bsx|swc";
-#ifdef GIT_VERSION
-   info->library_version = CORE_VERSION GIT_VERSION;
-#else
-   info->library_version  = CORE_VERSION;
-#endif
-   info->library_name     = "Snes9x 2010";
-   info->block_extract    = false;
+   info->library_version = "v1.52.4";
+   info->library_name = "Snes9X Next";
+   info->block_extract = false;
 }
 
 static void S9xAudioCallback()
 {
-   size_t avail;
-   /* Just pick a big buffer. We won't use it all. */
-   static int16_t audio_buf[0x20000];
+    size_t avail;
+    static int16_t audio_buf[1060];//0x10000];
 
-   S9xFinalizeSamples();
-   avail = S9xGetSampleCount();
-   S9xMixSamples(audio_buf, avail);
-   audio_batch_cb(audio_buf, avail >> 1);
+    S9xFinalizeSamples();
+    avail = S9xGetSampleCount();
+    S9xMixSamples(audio_buf, avail);
+
+    if (Options.EmulateSound)
+    {
+        audio_batch_cb(audio_buf, avail >> 1);
+    }
 }
 
 static unsigned retro_devices[2];
@@ -583,13 +355,15 @@ static void snes_init (void)
    Settings.Transparency = TRUE;
    Settings.FrameTimePAL = 20000;
    Settings.FrameTimeNTSC = 16667;
-   Settings.SoundPlaybackRate = 32000;
-   Settings.SoundInputRate = 32000;
    Settings.HDMATimingHack = 100;
    Settings.BlockInvalidVRAMAccessMaster = TRUE;
    Settings.CartAName[0] = 0;
    Settings.CartBName[0] = 0;
    Settings.Crosshair = 1;
+
+   Settings.SoundPlaybackRate = 32000;
+   Settings.SoundInputRate = 32000;
+   Settings.AutoSaveDelay = 1;
 
    CPU.Flags = 0;
 
@@ -601,21 +375,13 @@ static void snes_init (void)
          log_cb(RETRO_LOG_ERROR, "Failed to init Memory or APU.\n");
       exit(1);
    }
-   
-   //very slow devices will still pop
-   
-   //this needs to be applied to all snes9x cores
-   
-   //increasing the buffer size does not cause extra lag(tested with 1000ms buffer)
-   //bool8 S9xInitSound (int buffer_ms, int lag_ms)
 
-   S9xInitSound(1000, 0);//just give it a 1 second buffer
-
+   S9xInitSound(16, 0);
    S9xSetSamplesAvailableCallback(S9xAudioCallback);
 
    GFX.Pitch = use_overscan ? 1024 : 2048; // FIXME: What is this supposed to do? Overscan has nothing to do with anything like this. If this is the Wii performance hack, it should be done differently.
 
-#if defined(_POSIX_C_SOURCE) && (_POSIX_C_SOURCE >= 200112L) && !defined(GEKKO)
+#if defined(_POSIX_C_SOURCE) && (_POSIX_C_SOURCE >= 200112L)
    /* request 128-bit alignment here if possible */
    posix_memalign((void**)&GFX.Screen, 16, GFX.Pitch * 512 * sizeof(uint16));
 #else
@@ -625,7 +391,6 @@ static void snes_init (void)
    S9xGraphicsInit();
 
    retro_set_controller_port_device(0, RETRO_DEVICE_JOYPAD);
-   retro_set_controller_port_device(1, RETRO_DEVICE_JOYPAD);
 
    S9xUnmapAllControls();
    map_buttons();
@@ -644,7 +409,7 @@ void retro_init (void)
 {
    struct retro_log_callback log;
    enum retro_pixel_format rgb565;
-   bool achievements             = true;
+
    if (!environ_cb(RETRO_ENVIRONMENT_GET_OVERSCAN, &use_overscan))
 	   use_overscan = FALSE;
 
@@ -653,12 +418,11 @@ void retro_init (void)
    else
       log_cb = NULL;
 
-   // State that the core supports achievements.
-   environ_cb(RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS, &achievements);
-
+#ifdef FRONTEND_SUPPORTS_RGB565
    rgb565 = RETRO_PIXEL_FORMAT_RGB565;
    if(environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &rgb565) && log_cb)
          log_cb(RETRO_LOG_INFO, "Frontend supports RGB565 - will use that instead of XRGB1555.\n");
+#endif
 
    snes_init();
    check_system_specs();
@@ -822,15 +586,55 @@ static void report_buttons (void)
 #endif
 }
 
+static void check_variables(void)
+{
+   bool reset_sfx = false;
+   struct retro_variable var;
+   var.key = "snes9x_next_overclock";
+   var.value = NULL;
+
+   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+   {
+      if (strcmp(var.value, "disabled") == 0)
+      {
+         Settings.SuperFXSpeedPerLine = 0.417 * 10.5e6;
+         reset_sfx = true;
+      }
+      else if (strcmp(var.value, "40MHz") == 0)
+      {
+         Settings.SuperFXSpeedPerLine = 0.417 * 40.5e6;
+         reset_sfx = true;
+      }
+      else if (strcmp(var.value, "60MHz") == 0)
+      {
+         Settings.SuperFXSpeedPerLine = 0.417 * 60.5e6;
+         reset_sfx = true;
+      }
+      else if (strcmp(var.value, "80MHz") == 0)
+      {
+         Settings.SuperFXSpeedPerLine = 0.417 * 80.5e6;
+         reset_sfx = true;
+      }
+      else if (strcmp(var.value, "100MHz") == 0)
+      {
+         Settings.SuperFXSpeedPerLine = 0.417 * 100.5e6;
+         reset_sfx = true;
+      }
+   }
+
+   if (reset_sfx)
+      S9xResetSuperFX();
+}
+
 void retro_run (void)
 {
    bool updated = false;
-   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE_UPDATE, &updated) && updated)
-   check_variables();
-   
    poll_cb();
    report_buttons();
    S9xMainLoop();
+
+   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE_UPDATE, &updated) && updated)
+      check_variables();
 }
 
 size_t retro_serialize_size (void)
@@ -908,7 +712,7 @@ static bool merge_mapping(void)
 		return false;//can't merge the only one
 	a= &memorydesc[MAX_MAPS - (memorydesc_c-1)];
 	b= &memorydesc[MAX_MAPS - memorydesc_c];
-//printf("test %x/%x\n",a->start,b->start);
+
 	if (a->flags != b->flags)
 		return false;
 	if (a->disconnect != b->disconnect)
@@ -919,7 +723,6 @@ static bool merge_mapping(void)
 		return false;//we don't use these
 	if (((char*)a->ptr)+a->offset==((char*)b->ptr)+b->offset && a->select==b->select)
 	{
-//printf("merge/mirror\n");
 		a->select&=~(a->start^b->start);
 		memorydesc_c--;
 		return true;
@@ -929,13 +732,12 @@ static bool merge_mapping(void)
 		len=(0x1000000 - a->select);
 	if (len && ((len-1) & (len | a->disconnect))==0 && ((char*)a->ptr)+a->offset+len == ((char*)b->ptr)+b->offset)
 	{
-//printf("merge/consec\n");
 		a->select &=~ len;
 		a->disconnect &=~ len;
 		memorydesc_c--;
 		return true;
 	}
-//printf("nomerge\n");
+
 	return false;
 }
 
@@ -1013,7 +815,8 @@ static void init_descriptors(void)
       { 4, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_R,     "R" },
       { 4, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_SELECT,   "Select" },
       { 4, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_START,    "Start" },
-      { 0, 0, 0, 0, NULL }
+
+      { 0 },
    };
 
    environ_cb(RETRO_ENVIRONMENT_SET_INPUT_DESCRIPTORS, desc);
@@ -1029,29 +832,14 @@ bool retro_load_game(const struct retro_game_info *game)
    map.descriptors    = memorydesc + MAX_MAPS - memorydesc_c;
    map.num_descriptors = memorydesc_c;
 
-   /* Hack. S9x cannot do stuff from RAM. <_< */
-   memstream_set_buffer((uint8_t*)game->data, game->size);
+   loaded = LoadROM(game->path);
 
-   loaded = LoadROM("");
    if (!loaded)
    {
-      struct retro_message msg; 
-      char msg_local[256];
-
-      snprintf(msg_local,
-            sizeof(msg_local), "ROM loading failed...");
-      if (log_cb)
-         log_cb(RETRO_LOG_ERROR, "ROM loading failed...\n");
-      msg.msg    = msg_local;
-      msg.frames = 360;
-      if (environ_cb)
-         environ_cb(RETRO_ENVIRONMENT_SET_MESSAGE, (void*)&msg);
       return FALSE;
    }
 
    check_variables();
-
-
    environ_cb(RETRO_ENVIRONMENT_SET_MEMORY_MAPS, &map);
 
    return TRUE;
@@ -1076,12 +864,11 @@ unsigned retro_get_region (void)
 
 void S9xDeinitUpdate(int width, int height)
 {
-   if (height == 448 || height == 478){
-		GFX.Pitch = 1024;	/* Pitch 2048 -> 1024 */
-   }
-   else GFX.Pitch = 2048;		/* Pitch 1024 -> 2048 */
+	GFX.Pitch = 2048;		/* Pitch 1024 -> 2048 */
 
-   
+	if (height == 448 || height == 478)
+		GFX.Pitch = 1024;	/* Pitch 2048 -> 1024 */
+
    // TODO: Reverse case.
    if (!use_overscan)
    {
@@ -1103,8 +890,7 @@ void S9xDeinitUpdate(int width, int height)
       video_cb(GFX.Screen, width, height, GFX.Pitch);
 }
 
-/* Dummy functions that should probably be implemented correctly later. */
-const char* S9xGetDirectory(uint32_t dirtype) { return NULL; }
+const char* S9xChooseFilename(bool8 a) { return NULL; }
 
 void S9xMessage(int a, int b, const char* msg)
 {
@@ -1173,4 +959,6 @@ void _makepath (char *path, const char * a, const char *dir, const char *fname, 
       strcat(path, ext);
    }
 }
+#endif
+
 #endif
